@@ -1,0 +1,17 @@
+@mixin list-reboot() {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+$iphone-width: 320;
+@function get-vw($target) {
+  $vw-context: ($iphone-width * .01) * 1px; // 1% viewport width
+  @return ($target/$vw-context) * 1vw;
+}
+
+$iphone-height: 568;
+@function get-vh($target) {
+  $vh-context: ($iphone-height * .01) * 1px; // 1% viewport height
+  @return ($target/$vh-context) * 1vh;
+}
