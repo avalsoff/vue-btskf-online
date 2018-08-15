@@ -1,14 +1,12 @@
 <template>
   <header class="header">
     <h1 class="header__heading">{{ heading }}</h1>
-    <button
-      class="header__button header__button--left"
-      v-if="leftButtonIcon"
-    ></button>
-    <button
-      class="header__button header__button--right"
-      v-if="rightButtonIcon"
-    ></button>
+    <div class="header__wrapper header__wrapper--left">
+      <slot name="left"></slot>
+    </div>
+    <div class="header__wrapper header__wrapper--right">
+      <slot name="right"></slot>
+    </div>
   </header>
 </template>
 
@@ -18,15 +16,8 @@ export default {
     heading: {
       type: String,
       required: true
-    },
-    leftButtonIcon: {
-      type: String
-    },
-    rightButtonIcon: {
-      type: String
     }
   }
-
 }
 </script>
 
@@ -34,7 +25,7 @@ export default {
 @import '../styles/main.scss';
 
 .header {
-  background-color: $dark;
+  background-color: #3F4757;
   color: $menus;
   padding: 15px 0;
   text-align: center;
@@ -45,20 +36,14 @@ export default {
     line-height: 1;
   }
 
-  &__button {
+  &__wrapper {
     position: absolute;
-    top: 7px;
-    width: 30px;
-    height: 30px;
-    background: red;
-    border: none;
-
-    &--left {
-      left: 7px;
-    }
+    left: 10px;
+    top: 9px;
 
     &--right {
-      right: 7px;
+      left: unset;
+      right: 10px;
     }
   }
 }

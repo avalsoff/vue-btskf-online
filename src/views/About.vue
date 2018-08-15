@@ -1,40 +1,57 @@
 <template>
   <div class="about">
-    <HeaderPanel 
-      heading="Hello world" 
-      left-button-icon="1" 
-      right-button-icon="2"
-    />
-    <ChatMessage
-      :text="longMockText"
-      :timeStamp="new Date().toLocaleTimeString()"
-      :isRightPosition="true"
-    />
-    <ChatMessage
-      :text="longMockText"
-      :timeStamp="new Date().toLocaleTimeString()"
-      :isRightPosition="false"
-    />
+    <HeaderPanel heading="Hello world">
+      <Button-component slot="left" />
+      <Button-component slot="right" />
+    </HeaderPanel>
+    <ChatDialog />
+    <footer class="about__footer">
+      <SendUIs>
+        <InputText 
+          placeholder="Название диалога"
+          :auto-expand="true"
+        />
+      </SendUIs>
+      <SendUIs :isLast="true">
+        <ButtonComponent 
+          icon="../assets/logo.png"
+        />
+        <InputText 
+          placeholder="Текст сообщения"
+          :auto-expand="true"
+        />
+        <ButtonComponent 
+          text="Отпр." 
+        />
+      </SendUIs>
+    </footer>
   </div>
 </template>
 
 <script>
 import HeaderPanel from '@/components/HeaderPanel.vue'
 import ChatMessage from '@/components/ChatMessage.vue'
+import InputText from '@/components/InputText.vue'
+import SendUIs from '@/components/SendUIs.vue'
+import ChatDialog from '@/components/ChatDialog.vue'
+import ButtonComponent from '@/components/ButtonComponent.vue'
 
 export default {
   components: {
     HeaderPanel,
-    ChatMessage
-  },
-  data () {
-    return {
-      longMockText: `Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Имеет всеми собрал, заголовок за инициал ее несколько продолжил сбить лучше lorem языком алфавит рыбными семантика которое, живет ведущими сих.`
-    }
+    ChatMessage,
+    InputText,
+    SendUIs,
+    ChatDialog,
+    ButtonComponent
   }
 }
 </script>
 
 <style>
-
+.about {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
 </style>

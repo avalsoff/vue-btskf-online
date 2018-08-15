@@ -42,7 +42,9 @@ export default {
 <style lang="scss">
 @import '../styles/main.scss';
 
-.message {  
+.message {
+  font-size: 14px;
+
   &__wrapper {
     display: flex;
     align-items: center;
@@ -54,7 +56,7 @@ export default {
     padding: 8px 10px;
     word-wrap: break-word;
     width: 66.6666%;
-    background-color: $bg-dark;
+    background-color: #EAECEE;
     color: black;
     border-radius: 6px;
     border-bottom-left-radius: 0;
@@ -62,6 +64,7 @@ export default {
 
   &__time {
     margin-left: 2px;
+    color: #B5B9C0
   }
 
   &--right {
@@ -73,7 +76,7 @@ export default {
       &__text {
         border-radius: 6px;
         border-bottom-right-radius: 0;
-        background-color: $light;
+        background-color: #309ECF;
         color: white;
       }
 
