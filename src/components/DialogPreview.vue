@@ -23,7 +23,9 @@ export default {
 .dialog-preview {
   display: block;
   border-bottom: 1px solid #F5F5F6;
-  padding: 12px 0;
+  padding: 12px;
+  padding-left: 0;
+
 
   &__row {
     display: flex;

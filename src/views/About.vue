@@ -4,11 +4,7 @@
       <Button-component slot="left" />
       <Button-component slot="right" />
     </HeaderPanel>
-    <div style="flex-grow:1">
-      <!-- <ChatDialog /> -->
-      <DialogPreview />
-      <DialogPreview />
-    </div>
+    <DialogItems />
     <footer class="about__footer">
       <SendUIs>
         <InputText 
@@ -40,6 +36,7 @@ import SendUIs from '@/components/SendUIs.vue'
 import ChatDialog from '@/components/ChatDialog.vue'
 import ButtonComponent from '@/components/ButtonComponent.vue'
 import DialogPreview from '@/components/DialogPreview.vue'
+import DialogItems from '@/components/DialogItems.vue'
 
 export default {
   components: {
@@ -49,7 +46,8 @@ export default {
     SendUIs,
     ChatDialog,
     ButtonComponent,
-    DialogPreview
+    DialogPreview,
+    DialogItems,
   }
 }
 </script>
