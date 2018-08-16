@@ -23,6 +23,7 @@ export default {
   background-color: #F6F7F7;
   padding: 5px 10px 0;
   display: flex;
+  align-items: center;
 
   &--last {
     padding-bottom: 5px;

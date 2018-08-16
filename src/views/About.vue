@@ -1,8 +1,16 @@
 <template>
   <div class="about">
     <HeaderPanel heading="Hello world">
-      <Button-component slot="left" />
-      <Button-component slot="right" />
+      <Button-component 
+        slot="left"
+        icon="angle-left"
+        iconSize="65"
+      />
+      <Button-component 
+        slot="right"
+        icon="phone-call"
+        iconSize="70"
+      />
     </HeaderPanel>
     <DialogItems />
     <footer class="about__footer">
@@ -14,7 +22,7 @@
       </SendUIs>
       <SendUIs :isLast="true">
         <ButtonComponent 
-          icon="../assets/logo.png"
+          icon="add"
         />
         <InputText 
           placeholder="Текст сообщения"

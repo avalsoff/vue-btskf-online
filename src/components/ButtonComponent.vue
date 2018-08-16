@@ -6,14 +6,13 @@
 
 
 <script>
-const images = ['add', 'angle-left', 'phone-call', 'edit', 'cancel'];
-images.forEach(img => require(`../assets/${img}.svg`));
 
 export default {
   data () {
     return {
       style: {
-        backgroundImage: `url('${require('../assets/add.svg')}')`
+        backgroundImage: 'url(' + this.iconRequire() + ')',
+        backgroundSize: this.iconSize + '%'
       }
     }
   },
@@ -24,7 +23,15 @@ export default {
     },
     icon: {
       type: String,
-      default: '../assets/add.svg',
+    },
+    iconSize: {
+      type: String,
+      default: '100'
+    }
+  },
+  methods: {
+    iconRequire () {
+      return this.icon ? require('../assets/' + this.icon + '.svg') : '';
     }
   }
 }
@@ -34,13 +41,16 @@ export default {
 .button {
   display: block;
   min-width: 27px;
-  font-size: 12px;
-  padding: 0 5px;
+  font-size: 14px;
   height: 27px;
+  padding: 0;
   border: none;
   flex: 1 0 auto;
   background-color: unset;
   background-size: contain;
   background-repeat: no-repeat;
+  background-position: 50% 50%;
+  color: #AFB3BA;
+  outline: none;
 }
 </style>
