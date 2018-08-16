@@ -1,8 +1,14 @@
 <template>
 <main class="dialog-items">
-  <DialogPreview />
-  <DialogPreview />
-  <DialogPreview />
+  <DialogPreview 
+    heading="Обеспечение госконтракта"
+  />
+  <DialogPreview 
+    heading="Создание счета"
+  />
+  <DialogPreview 
+    heading="Бонусы"
+  />
 </main>
 </template>
 

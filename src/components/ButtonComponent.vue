@@ -1,5 +1,9 @@
 <template>
-  <button class="button" :style="style">
+  <button 
+    class="button" 
+    :style="style"
+    @click="onClick"
+  >
     {{ text }}
   </button>
 </template>
@@ -11,8 +15,8 @@ export default {
   data () {
     return {
       style: {
-        backgroundImage: 'url(' + this.iconRequire() + ')',
-        backgroundSize: this.iconSize + '%'
+        backgroundImage: `url('${ this.iconRequire() }')`,
+        backgroundSize: `${ this.iconSize }%`
       }
     }
   },
@@ -27,11 +31,15 @@ export default {
     iconSize: {
       type: String,
       default: '100'
+    },
+    onClick: {
+      type: Function,
+      default: () => console.log('Button clicked')
     }
   },
   methods: {
     iconRequire () {
-      return this.icon ? require('../assets/' + this.icon + '.svg') : '';
+      return this.icon ? require('../assets/' + this.icon + '.svg') : ''
     }
   }
 }
@@ -52,5 +60,6 @@ export default {
   background-position: 50% 50%;
   color: #AFB3BA;
   outline: none;
+  cursor: pointer;
 }
 </style>

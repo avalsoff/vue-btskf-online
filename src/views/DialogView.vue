@@ -5,6 +5,7 @@
         slot="left"
         icon="angle-left"
         iconSize="65"
+        :onClick="goToChats"
       />
       <Button-component 
         slot="right"
@@ -12,14 +13,8 @@
         iconSize="70"
       />
     </HeaderPanel>
-    <DialogItems />
+    <ChatDialog />
     <footer class="about__footer">
-      <SendUIs>
-        <InputText 
-          placeholder="Название диалога"
-          :auto-expand="true"
-        />
-      </SendUIs>
       <SendUIs :isLast="true">
         <ButtonComponent 
           icon="add"
@@ -38,24 +33,25 @@
 
 <script>
 import HeaderPanel from '@/components/HeaderPanel.vue'
-import ChatMessage from '@/components/ChatMessage.vue'
 import InputText from '@/components/InputText.vue'
 import SendUIs from '@/components/SendUIs.vue'
 import ChatDialog from '@/components/ChatDialog.vue'
 import ButtonComponent from '@/components/ButtonComponent.vue'
-import DialogPreview from '@/components/DialogPreview.vue'
 import DialogItems from '@/components/DialogItems.vue'
 
 export default {
   components: {
     HeaderPanel,
-    ChatMessage,
     InputText,
     SendUIs,
     ChatDialog,
     ButtonComponent,
-    DialogPreview,
     DialogItems,
+  },
+  methods: {
+    goToChats () {
+      this.$router.push('chats');
+    }
   }
 }
 </script>

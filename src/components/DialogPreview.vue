@@ -1,8 +1,8 @@
 <template>
-<a class="dialog-preview">
+<a class="dialog-preview" @click="goToDialog">
   <div class="dialog-preview__row">
     <h2 class="dialog-preview__heading">
-      Обеспечение госконтракта
+      {{ heading }}
     </h2>
     <!-- Router link -->
     <div class="dialog-preview__button">
@@ -15,7 +15,21 @@
 
 <script>
 export default {
-
+  props: {
+    status: {
+      type: String,
+      default: 'Статус'
+    },
+    heading: {
+      type: String,
+      required: true
+    }
+  },
+  methods: {
+    goToDialog () {
+      this.$router.push('dialog');
+    }
+  }
 }
 </script>
 
@@ -25,6 +39,7 @@ export default {
   border-bottom: 1px solid #F5F5F6;
   padding: 12px;
   padding-left: 0;
+  cursor: pointer;
 
 
   &__row {
