@@ -26,17 +26,18 @@
 @import "../styles/main";
 
 .wrapper {
-  background-color: $dark;
+  background-color: $light;
   height: 100%;
+  background-image: 
+    url('../assets/logo1.svg'),
+    url('../assets/pattern.svg');
   background-repeat: no-repeat;
-  background-position: 0 12%,
-                       50% 96%;
-  background-size: contain,
-                   30%;
+  background-size: 50%, 106%;
+  background-position: 34% 15%, 50% -25px;
 }
 
 .menu {
-  color: #fff;
+  color: #000;
 
   &__items {
     @include list-reboot();
@@ -70,8 +71,7 @@
 
   &__link {
     font-size: 14px;
-    font-family: 'Geometria Medium';
-    color: #fff;
+    color: #000;
     text-decoration: none;
   }
 }

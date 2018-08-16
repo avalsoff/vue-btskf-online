@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="320px" height="568px" viewBox="0 0 320 568" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51 (57462) - http://www.bohemiancoding.com/sketch -->
+    <title>pattern2</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-12.6%" y="-8.1%" width="125.2%" height="122.6%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="20" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="20" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.1 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <polygon id="path-2" points="0.568 0.1154 71.787 0.1154 71.787 55 0.568 55"></polygon>
+        <polygon id="path-4" points="0.568 0.1154 71.787 0.1154 71.787 55 0.568 55"></polygon>
+        <polygon id="path-6" points="0.4615 0.11 142.9275 0.11 142.9275 52.8265 0.4615 52.8265"></polygon>
+    </defs>
+    <g id="Blog" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="pattern">
+            <g id="pattern2" filter="url(#filter-1)" transform="translate(-114.000000, -26.000000)">
+                <g id="Group-661">
+                    <path d="M124.016,537.072 C124.006,537.316 124,537.561 124,537.808 C124,538.056 124.006,538.301 124.016,538.547 L124.016,555.616 L141.808,555.616 C151.644,555.616 159.616,547.644 159.616,537.808 C159.616,527.974 151.644,520 141.808,520 L124.016,520 L124.016,537.072 Z" id="Fill-635" fill="#80B439"></path>
+                    <g id="Group-647" transform="translate(250.000000, 564.000000)">
+                        <mask id="mask-3" fill="white">
+                            <use xlink:href="#path-2"></use>
+                        </mask>
+                        <g id="Clip-646"></g>
+                        <path d="M71.787,35.7314 C52.123,35.7404 36.184,51.6824 36.184,71.3484 C36.184,91.0144 52.123,106.9564 71.787,106.9654 L71.787,142.5814 C32.451,142.5744 0.568,110.6854 0.568,71.3484 C0.568,32.0114 32.451,0.1224 71.787,0.1154 L71.787,35.7314 Z" id="Fill-645" fill="#80B439" mask="url(#mask-3)"></path>
+                    </g>
+                    <path d="M143.218,169.617 C123.555,169.626 107.616,185.568 107.616,205.234 C107.616,224.9 123.555,240.842 143.218,240.85 L143.218,276.467 C103.883,276.46 72,244.571 72,205.234 C72,165.896 103.883,134.009 143.218,134 L143.218,169.617 Z" id="Fill-650" fill="#519032"></path>
+                    <path d="M74,451.85 C93.664,451.841 109.604,435.899 109.604,416.233 C109.604,396.567 93.665,380.623 74,380.616 L74,345 C113.335,345.007 145.221,376.896 145.221,416.233 C145.22,455.569 113.335,487.459 74,487.467 L74,451.85 Z" id="Fill-654" fill="#FFFFFF"></path>
+                    <path d="M106.85,72.0081 C106.842,52.3441 90.901,36.4051 71.234,36.4051 C51.568,36.4051 35.624,52.3431 35.618,72.0071 L0,72.0071 C0.007,32.6731 31.897,0.7881 71.234,0.7881 C110.569,0.7891 142.459,32.6731 142.467,72.0081 L106.85,72.0081 Z" id="Fill-659" fill="#519032"></path>
+                </g>
+                <g id="Group-661-Copy" transform="translate(425.000000, 311.500000) scale(-1, 1) translate(-425.000000, -311.500000) translate(295.000000, 17.000000)">
+                    <path d="M134.016,189.072 C134.006,189.316 134,189.561 134,189.808 C134,190.056 134.006,190.301 134.016,190.547 L134.016,207.616 L151.808,207.616 C161.644,207.616 169.616,199.644 169.616,189.808 C169.616,179.974 161.644,172 151.808,172 L134.016,172 L134.016,189.072 Z" id="Fill-635" fill="#FFFFFF"></path>
+                    <g id="Group-647" transform="translate(164.000000, 534.000000)">
+                        <mask id="mask-5" fill="white">
+                            <use xlink:href="#path-4"></use>
+                        </mask>
+                        <g id="Clip-646"></g>
+                    </g>
+                    <path d="M140.218,405.617 C120.555,405.626 104.616,421.568 104.616,441.234 C104.616,460.9 120.555,476.842 140.218,476.85 L140.218,512.467 C100.883,512.46 69,480.571 69,441.234 C69,401.896 100.883,370.009 140.218,370 L140.218,405.617 Z" id="Fill-650" fill="#80B439"></path>
+                    <path d="M91,249 L91,284.617 L108.798,284.617 L108.809,284.617 C113.65,284.617 118.04,286.549 121.251,289.686 C124.531,292.889 126.577,297.347 126.616,302.285 C126.618,302.344 126.618,302.391 126.618,302.426 L126.618,311.331 L162.235,311.331 L162.235,302.426 C162.235,269.692 140.854,249 108.809,249 L91,249 Z" id="Fill-652" fill="#FFFFFF"></path>
+                    <g id="Group-658" transform="translate(117.000000, 0.000000)">
+                        <mask id="mask-7" fill="white">
+                            <use xlink:href="#path-6"></use>
+                        </mask>
+                        <g id="Clip-657"></g>
+                    </g>
+                    <path d="M117.85,106.3704 C117.842,86.7064 101.901,70.7674 82.234,70.7674 C62.568,70.7674 46.624,86.7054 46.618,106.3694 L11,106.3694 C11.007,67.0354 42.897,35.1504 82.234,35.1504 C121.569,35.1514 153.459,67.0354 153.467,106.3704 L117.85,106.3704 Z" id="Fill-659" fill="#80B439"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

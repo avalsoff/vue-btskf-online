@@ -33,7 +33,7 @@
 				<button @click="goToChats" class="login__submit" type="button">Регистрация</button>
 			</form>
 			<span class="login__or">Или</span>
-			<button @click="register = !register" class="login__toggle">{{ register ? 'Регистрация' : 'Вход' }}</button>
+			<button @click="register = !register" class="login__toggle">{{ register ? 'Вход' : 'Регистрация' }}</button>
 		</div>
 	</div>
 </template>
@@ -44,16 +44,20 @@
 	.wrapper {
 		height: 100%;
 		padding: 5% 10%;
-		background-color: $dark;
+		background-color: #fff;
+		background-image: 
+			url('../assets/1.svg'),
+			url('../assets/pattern.svg');
+		background-size: 
+			50%,
+			contain;
 		background-repeat: no-repeat;
-		background-position: 0 14%,
-		50% 6%;
-		background-size: contain,
-		40%;
+		background-position: 
+			50% 10%,
 	}
 	
 	.login {
-		color: #fff;
+		color: #000;
 		&__languages {
 			@include list-reboot();
 			margin-top: 120px;
@@ -103,11 +107,11 @@
 			border-radius: 7px;
 			padding: 10px 10px 10px;
 			border: none;
-			background: rgba($color: #fff, $alpha: .15);
-			color: rgba($color: #fff, $alpha: 1);
+			background: rgba($dark, .15);
+			color: rgba(#000, 1);
 			font-size: 14px;
 			margin: 20px auto 0;
-			width: 100%;
+			width: 80%;
 			border: 1px solid transparent;
 			
 			&:focus {
@@ -123,7 +127,7 @@
 			}
 			
 			&::placeholder {
-				color: rgba($color: #fff, $alpha: .5);
+				color: rgba(#000, .5);
 				font-size: 14px;
 			}
 		}
@@ -134,8 +138,8 @@
 			padding: 10px 50px 9px;
 			border-radius: 20px;
 			background: none;
-			border: 1px solid #fff;
-			color: #fff;
+			border: 1px solid #000;
+			color: #000;
 			font-family: 'Geometria Medium', Arial, Helvetica, sans-serif;
 			font-size: 12px;
 		}
@@ -156,7 +160,7 @@
 				top: 6px;
 				content: "";
 				flex-grow: 1;
-				background-color: #fff;
+				background-color: #000;
 				height: 1px;
 			}
 			
@@ -213,7 +217,7 @@
 			background: none;
 			/*border: 1px solid #fff;*/
 			border: none;
-			color: #fff;
+			color: #000;
 			font-family: 'Geometria Medium', Arial, Helvetica, sans-serif;
 			font-size: 12px;
 		}

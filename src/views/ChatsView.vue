@@ -1,28 +1,29 @@
 <template>
   <div class="about">
     <HeaderPanel heading="Hello world">
-      <Button-component 
+      <button-component 
         slot="right"
         icon="edit"
         iconSize="70"
         :onClick="showNewForm"
       />
-      <Button-component 
+      <button-component 
         slot="left"
         icon="menu"
         iconSize="70"
         :onClick="goToMenu"
       />
-      <Button-component 
+      <button-component 
         slot="center-right"
         icon="filter"
         iconSize="60"
+        :onClick="() => showFilters = true"
       />
     </HeaderPanel>
     <DialogItems 
       :dialogItems="dialogItems"
     />
-    <footer v-if="!isFormHidden" class="about__footer">
+    <footer v-if="!showForm" class="about__footer">
       <SendUIs>
         <InputText 
           placeholder="Название диалога"
@@ -45,6 +46,36 @@
         />
       </SendUIs>
     </footer>
+    <ModalComponent 
+      v-if="showFilters" 
+      @close="showFilters = false"
+    >
+      <!-- TODO: Make component from it -->
+      <div class="filters">
+        <h4 class="filters__heading">Фильтр по статусам</h4>
+        <div class="filters__filter">
+          <label>
+            <input type="checkbox">
+            <span></span>
+            Открыто
+          </label>
+        </div>
+        <div class="filters__filter">
+          <label>
+            <input type="checkbox">
+            <span></span>
+            Закрыто
+          </label>
+        </div>
+        <div class="filters__filter">
+          <label>
+            <input type="checkbox">
+            <span></span>
+            В очереди
+          </label>
+        </div>
+      </div>
+    </ModalComponent>
   </div>
 </template>
 
@@ -54,6 +85,7 @@ import InputText from '@/components/InputText.vue'
 import SendUIs from '@/components/SendUIs.vue'
 import ButtonComponent from '@/components/ButtonComponent.vue'
 import DialogItems from '@/components/DialogItems.vue'
+import ModalComponent from '@/components/ModalComponent.vue'
 
 export default {
   components: {
@@ -62,12 +94,14 @@ export default {
     SendUIs,
     ButtonComponent,
     DialogItems,
+    ModalComponent
   },
   data () {
     return {
+      showFilters: false,
       currentMessage: '',
       currentName: '',
-      isFormHidden: true,
+      showForm: true,
       dialogItems: [
         {
           id: 0,
@@ -93,10 +127,10 @@ export default {
   },
   methods: {
     showNewForm () {
-      this.isFormHidden = false
+      this.showForm = false
     },
     hideNewForm () {
-      this.isFormHidden = true
+      this.showForm = true
     },
     goToMenu () {
       this.$router.push('menu')
@@ -114,10 +148,53 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+@import '../styles/main';
+
 .about {
   height: 100%;
   display: flex;
   flex-direction: column;
+}
+
+.filters {
+  &__heading {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  &__filter {
+    border-bottom: 1px solid rgba(#000, .05);
+    padding: 12px 0;
+    &:last-child{
+      border-bottom: none;
+    }
+    span {
+      position: absolute;
+      left: -8px;
+      top: 1px;
+      border: 1px solid #B2B2B2;
+      display: block;
+      width: 14px;
+      height: 14px;
+      border-radius: 3px;
+    }
+    label {
+      position: relative;
+      display: block;
+      margin-left: 8px;
+    }
+    input {
+      appearance: none;
+    }
+    input:checked + span::before {
+      position: absolute;
+      content: "";
+      background: $dark;
+      width: 8px;
+      height: 8px;
+      top: 2px;
+      left: 2px;
+    }
+  }
 }
 </style>

@@ -28,15 +28,27 @@ export default {
 @import '../styles/main.scss';
 
 .header {
-  background-color: $dark;
-  color: $menus;
+  background-color: $light;
+  color: #000;
   padding: 15px 0;
   text-align: center;
 
   &__heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 14px;
     margin: 0;
     line-height: 1;
+
+    &::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      background-color: $dark;
+      margin-right: 10px;
+      border-radius: 50%;
+    }
   }
 
   &__wrapper {

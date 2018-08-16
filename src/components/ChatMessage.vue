@@ -57,8 +57,8 @@ export default {
     word-wrap: break-word;
     max-width: 66.6666%;
     width: fit-content;
-    background-color: lighten($dark, 30);
-    color: black;
+    background-color: lighten($accent, 20);
+    color: #fff;
     border-radius: 10px;
     border-bottom-left-radius: 0;
     text-indent: -4px;
@@ -78,7 +78,7 @@ export default {
       &__text {
         border-radius: 10px;
         border-bottom-right-radius: 0;
-        background-color: $dark;
+        background-color: $accent;
         color: white;
         text-align: right;
       }
