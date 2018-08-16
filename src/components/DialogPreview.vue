@@ -9,25 +9,52 @@
       Вчера
     </div>
   </div>
-  <div class="dialog-preview__status">Статус</div>
+  <div class="dialog-preview__status">
+    <span 
+      class="dialog-preview__status-marker"
+      :style="{ backgroundColor: getStatusColor(status) }"
+    ></span>
+    {{ getStatusText(status) }}
+  </div>
 </a>
 </template>
 
 <script>
+const statuses = {
+  open: {
+    color: '#579136',
+    text: 'Открыто'
+  },
+  close: {
+    color: 'red',
+    text: 'Закрыто'
+  }
+}
+
 export default {
   props: {
     status: {
       type: String,
-      default: 'Статус'
+      default: 'open'
     },
     heading: {
       type: String,
       required: true
+    },
+    date: {
+      type: String,
+      default: 'Вчера'
     }
   },
   methods: {
     goToDialog () {
       this.$router.push('dialog');
+    },
+    getStatusColor (status) {
+      return statuses[status].color
+    },
+    getStatusText (status) {
+      return statuses[status].text
     }
   }
 }
@@ -62,17 +89,17 @@ export default {
     margin-left: 12px;
     color: #A9A9A9;
     font-size: 13px;
+  }
 
-    &::before {
-      content: "";
-      position: absolute;
-      left: -12px;
-      top: 3px;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background-color: #579136;
-    }
+  &__status-marker {
+    content: "";
+    position: absolute;
+    left: -12px;
+    top: 3px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #579136;
   }
 
   &__button {

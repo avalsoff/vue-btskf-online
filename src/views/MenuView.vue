@@ -23,10 +23,10 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-@import "../styles/mixins";
+@import "../styles/main";
 
 .wrapper {
-  background-color: #1C236E;
+  background-color: $dark;
   height: 100%;
   background-repeat: no-repeat;
   background-position: 0 12%,

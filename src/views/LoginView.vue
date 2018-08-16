@@ -39,12 +39,12 @@
 </template>
 
 <style lang="scss" scoped>
-	@import "../styles/mixins";
+	@import "../styles/main";
 	
 	.wrapper {
 		height: 100%;
-		padding-top: .1px;
-		background-color: #1C236E;
+		padding: 5% 10%;
+		background-color: $dark;
 		background-repeat: no-repeat;
 		background-position: 0 14%,
 		50% 6%;
@@ -92,7 +92,6 @@
 		
 		&__heading {
 			text-align: center;
-			font-family: 'Geometria';
 			font-size: 28px;
 			margin-top: 21px;
 			margin-bottom: 30px;
@@ -104,22 +103,27 @@
 			border-radius: 7px;
 			padding: 10px 10px 10px;
 			border: none;
-			background: rgba($color: #fff, $alpha: .1);
-			color: rgba($color: #fff, $alpha: .3);
+			background: rgba($color: #fff, $alpha: .15);
+			color: rgba($color: #fff, $alpha: 1);
 			font-size: 14px;
 			margin: 20px auto 0;
-			width: 200px;
+			width: 100%;
 			border: 1px solid transparent;
 			
 			&:focus {
 				outline: none;
-				border: 1px solid #1C236E;
-				background-color: #fff;
+				border: 1px solid $dark;
+				background-color: rgba(#fff, .6);
 				color: #000;
+				
+				&::placeholder {
+					color: rgba(0, 0, 0, 0.767);
+					font-size: 14px;
+				}
 			}
 			
 			&::placeholder {
-				color: rgba($color: #fff, $alpha: .3);
+				color: rgba($color: #fff, $alpha: .5);
 				font-size: 14px;
 			}
 		}
@@ -127,7 +131,7 @@
 		&__submit {
 			display: block;
 			margin: 20px auto 0;
-			padding: 10px 42px 9px;
+			padding: 10px 50px 9px;
 			border-radius: 20px;
 			background: none;
 			border: 1px solid #fff;
@@ -138,7 +142,7 @@
 		
 		&__or {
 			margin: 25px auto 0;
-			width: 200px;
+			width:	100%;
 			display: flex;
 			justify-content: center;
 			text-transform: uppercase;

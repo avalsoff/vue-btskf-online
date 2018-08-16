@@ -7,6 +7,9 @@
     <div class="header__wrapper header__wrapper--right">
       <slot name="right"></slot>
     </div>
+    <div class="header__wrapper header__wrapper--center-right">
+      <slot name="center-right"></slot>
+    </div>
   </header>
 </template>
 
@@ -25,7 +28,7 @@ export default {
 @import '../styles/main.scss';
 
 .header {
-  background-color: #3F4757;
+  background-color: $dark;
   color: $menus;
   padding: 15px 0;
   text-align: center;
@@ -44,6 +47,11 @@ export default {
     &--right {
       left: unset;
       right: 10px;
+    }
+
+    &--center-right {
+      left: unset;
+      right: 40px;
     }
   }
 }

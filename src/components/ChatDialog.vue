@@ -1,38 +1,12 @@
 <template>
-<main class="chat-dialog">
+<main class="chat-dialog" ref="dialog">
   <span class="chat-dialog__date">18 июля 2018</span>
   <ChatMessage
-    :text="longMockText"
+    v-for="message in messages"
+    :key="message.id"
+    :text="message.text"
     :time-stamp="new Date().toLocaleTimeString()"
-    :is-right-position="true"
-  />
-  <ChatMessage
-    :text="longMockText"
-    :time-stamp="new Date().toLocaleTimeString()"
-    :is-right-position="false"
-  /><ChatMessage
-    :text="longMockText"
-    :time-stamp="new Date().toLocaleTimeString()"
-    :is-right-position="true"
-  />
-  <ChatMessage
-    :text="longMockText"
-    :time-stamp="new Date().toLocaleTimeString()"
-    :is-right-position="false"
-  /><ChatMessage
-    :text="longMockText"
-    :time-stamp="new Date().toLocaleTimeString()"
-    :is-right-position="true"
-  />
-  <ChatMessage
-    :text="longMockText"
-    :time-stamp="new Date().toLocaleTimeString()"
-    :is-right-position="false"
-  />
-  <ChatMessage
-    :text="longMockText"
-    :time-stamp="new Date().toLocaleTimeString()"
-    :is-right-position="true"
+    :is-right-position="message.isRightPosition"
   />
 </main>
 </template>
@@ -47,6 +21,12 @@ export default {
   data () {
     return {
       longMockText: `Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Имеет всеми собрал, заголовок за инициал ее несколько продолжил сбить лучше lorem языком алфавит рыбными семантика которое, живет ведущими сих.`
+    }
+  },
+  props: {
+    messages: {
+      type: Array,
+      default: () => []
     }
   }
 }

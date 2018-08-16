@@ -13,13 +13,21 @@
         iconSize="70"
         :onClick="goToMenu"
       />
+      <Button-component 
+        slot="center-right"
+        icon="filter"
+        iconSize="60"
+      />
     </HeaderPanel>
-    <DialogItems />
+    <DialogItems 
+      :dialogItems="dialogItems"
+    />
     <footer v-if="!isFormHidden" class="about__footer">
       <SendUIs>
         <InputText 
           placeholder="Название диалога"
           :auto-expand="true"
+          v-model="currentName"
         />
       </SendUIs>
       <SendUIs :isLast="true">
@@ -29,9 +37,11 @@
         <InputText 
           placeholder="Текст сообщения"
           :auto-expand="true"
+          v-model="currentMessage"
         />
         <ButtonComponent 
-          text="Отпр." 
+          text="Отпр."
+          :onClick="createNewDialog"
         />
       </SendUIs>
     </footer>
@@ -40,28 +50,45 @@
 
 <script>
 import HeaderPanel from '@/components/HeaderPanel.vue'
-import ChatMessage from '@/components/ChatMessage.vue'
 import InputText from '@/components/InputText.vue'
 import SendUIs from '@/components/SendUIs.vue'
-import ChatDialog from '@/components/ChatDialog.vue'
 import ButtonComponent from '@/components/ButtonComponent.vue'
-import DialogPreview from '@/components/DialogPreview.vue'
 import DialogItems from '@/components/DialogItems.vue'
 
 export default {
   components: {
     HeaderPanel,
-    ChatMessage,
     InputText,
     SendUIs,
-    ChatDialog,
     ButtonComponent,
-    DialogPreview,
     DialogItems,
   },
   data () {
     return {
+      currentMessage: '',
+      currentName: '',
       isFormHidden: true,
+      dialogItems: [
+        {
+          id: 0,
+          heading: 'Обеспечение госконтракта',
+          status: 'open',
+          date: 'Сегодня'
+        },
+        {
+          id: 1,
+          heading: 'Создание счета',
+          status: 'open',
+          date: 'Вчера'
+        },
+        {
+          id: 2,
+          heading: 'Бонусы',
+          status: 'close',
+          date: 'Вчера'
+        },
+      ],
+      nextId: 3
     }
   },
   methods: {
@@ -73,7 +100,16 @@ export default {
     },
     goToMenu () {
       this.$router.push('menu')
-    }
+    },
+    createNewDialog () {
+      this.dialogItems.unshift({
+        id: this.nextId++,
+        heading: this.currentName,
+        status: 'open'
+      })
+      this.currentMessage = ''
+      this.currentName = ''
+    },
   }
 }
 </script>

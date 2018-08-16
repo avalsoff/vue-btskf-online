@@ -1,13 +1,10 @@
 <template>
 <main class="dialog-items">
   <DialogPreview 
-    heading="Обеспечение госконтракта"
-  />
-  <DialogPreview 
-    heading="Создание счета"
-  />
-  <DialogPreview 
-    heading="Бонусы"
+    v-for="dialog in dialogItems"
+    :key="dialog.id"
+    :heading="dialog.heading"
+    :status="dialog.status"
   />
 </main>
 </template>
@@ -19,6 +16,12 @@ export default {
   components: {
     DialogPreview
   },
+  props: {
+    dialogItems: {
+      type: Array,
+      default: () => [],
+    }
+  }
 }
 </script>
 

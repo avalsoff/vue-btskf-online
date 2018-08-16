@@ -55,11 +55,13 @@ export default {
     margin: 0;
     padding: 8px 10px;
     word-wrap: break-word;
-    width: 66.6666%;
-    background-color: #EAECEE;
+    max-width: 66.6666%;
+    width: fit-content;
+    background-color: lighten($dark, 30);
     color: black;
-    border-radius: 6px;
+    border-radius: 10px;
     border-bottom-left-radius: 0;
+    text-indent: -4px;
   }
 
   &__time {
@@ -74,10 +76,11 @@ export default {
       }
 
       &__text {
-        border-radius: 6px;
+        border-radius: 10px;
         border-bottom-right-radius: 0;
-        background-color: #309ECF;
+        background-color: $dark;
         color: white;
+        text-align: right;
       }
 
       &__time {

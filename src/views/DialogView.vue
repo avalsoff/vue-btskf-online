@@ -13,7 +13,9 @@
         iconSize="70"
       />
     </HeaderPanel>
-    <ChatDialog />
+    <ChatDialog 
+      :messages="messages"
+    />
     <footer class="about__footer">
       <SendUIs :isLast="true">
         <ButtonComponent 
@@ -22,9 +24,12 @@
         <InputText 
           placeholder="Текст сообщения"
           :auto-expand="true"
+          v-model="currentMessage"
+          @send="sendMessage"
         />
         <ButtonComponent 
-          text="Отпр." 
+          text="Отпр."
+          :onClick="sendMessage"
         />
       </SendUIs>
     </footer>
@@ -48,9 +53,40 @@ export default {
     ButtonComponent,
     DialogItems,
   },
+  data () {
+    return {
+      currentMessage: '',
+      nextId: 3,
+      messages: [
+        {
+          id: 0,
+          text: 'Здравствуйте, подскажите пожалуйста, возможно ли.. Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. ',
+          isRightPosition: true
+        },
+        {
+          id: 1,
+          text: 'Да, конечно, для этого вам нужно обратиться в Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. ',
+          isRightPosition: false
+        },
+        // {
+        //   id: 2,
+        //   text: 'Вам потребуется паспорт, документы на квартиру, ИННю Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. ',
+        //   isRightPosition: false
+        // },
+      ],
+    }
+  },
   methods: {
     goToChats () {
       this.$router.push('chats');
+    },
+    sendMessage () {
+      this.messages.push({
+        id: this.nextId++,
+        text: this.currentMessage,
+        isRightPosition: true
+      })
+      this.currentMessage = ''
     }
   }
 }

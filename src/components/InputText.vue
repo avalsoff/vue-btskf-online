@@ -4,6 +4,8 @@
     :placeholder="placeholder"
     @input="expand"
     ref="field"
+    :value="value"
+    @keyUp.enter="$emit('send')"
   ></textarea>
 </template>
 
@@ -17,6 +19,10 @@ export default {
     autoExpand: {
       type: Boolean,
       default: false
+    },
+    value: {
+      type: String,
+      default: ''
     }
   },
   data () {
@@ -26,7 +32,11 @@ export default {
     }
   },
   methods: {
-    expand () {
+    expand (evt) {
+      if (evt) {
+        this.$emit('input', evt.srcElement.value);
+      }
+
       if (!this.autoExpand) return
 
       const field = this.$refs.field
