@@ -1,6 +1,9 @@
 <template>
   <header class="header">
-    <h1 class="header__heading">{{ heading }}</h1>
+    <h1 class="header__heading">
+      <span v-if="status" class="header__status"></span>
+      {{ heading }}
+    </h1>
     <div class="header__wrapper header__wrapper--left">
       <slot name="left"></slot>
     </div>
@@ -19,6 +22,10 @@ export default {
     heading: {
       type: String,
       required: true
+    },
+    status: {
+      type: String,
+      default: '',
     }
   }
 }
@@ -40,15 +47,15 @@ export default {
     font-size: 14px;
     margin: 0;
     line-height: 1;
+  }
 
-    &::before {
-      content: "";
-      width: 10px;
-      height: 10px;
-      background-color: $dark;
-      margin-right: 10px;
-      border-radius: 50%;
-    }
+  &__status {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background-color: $dark;
+    margin-right: 10px;
+    border-radius: 50%;
   }
 
   &__wrapper {

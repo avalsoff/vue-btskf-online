@@ -1,13 +1,13 @@
 <template>
   <div class="about">
-    <HeaderPanel heading="Hello world">
-      <Button-component 
+    <HeaderPanel heading="Диалог" status="open">
+      <ButtonComponent 
         slot="left"
         icon="angle-left"
         iconSize="65"
         :onClick="goToChats"
       />
-      <Button-component 
+      <ButtonComponent 
         slot="right"
         icon="phone-call"
         iconSize="70"

@@ -1,19 +1,19 @@
 <template>
   <div class="about">
-    <HeaderPanel heading="Hello world">
-      <button-component 
+    <HeaderPanel heading="Тикеты">
+      <ButtonComponent 
         slot="right"
         icon="edit"
         iconSize="70"
         :onClick="showNewForm"
       />
-      <button-component 
+      <ButtonComponent 
         slot="left"
         icon="menu"
         iconSize="70"
         :onClick="goToMenu"
       />
-      <button-component 
+      <ButtonComponent 
         slot="center-right"
         icon="filter"
         iconSize="60"
@@ -190,6 +190,7 @@ export default {
       position: absolute;
       content: "";
       background: $dark;
+      border-radius: 50%;
       width: 8px;
       height: 8px;
       top: 2px;

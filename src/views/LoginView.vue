@@ -49,9 +49,11 @@
 			url('../assets/1.svg'),
 			url('../assets/pattern.svg');
 		background-size: 
-			50%,
-			contain;
-		background-repeat: no-repeat;
+			160px,
+			cover;
+		background-repeat: 
+			no-repeat,
+			no-repeat;
 		background-position: 
 			50% 10%,
 	}

@@ -1,11 +1,11 @@
 <template>
   <div class="wrapper">
-    <HeaderPanel heading="Настройки">      
+    <HeaderPanel heading="Меню">      
       <ButtonComponent
         slot="left"
         icon="menu"
         iconSize="70"
-        :onClick="goToChats"
+        :onClick="goBack"
       />
     </HeaderPanel>
     <main class="menu">
@@ -13,7 +13,10 @@
         <router-link tag="li" to="/chats" class="menu__item menu__item--todos">
           <a class="menu__link">Тикеты</a>
         </router-link>
-        <router-link tag="li" to="/chats" class="menu__item menu__item--settings">
+        <router-link tag="li" to="/companies" class="menu__item menu__item--settings">
+          <a class="menu__link">Компании</a>
+        </router-link>     
+        <router-link tag="li" to="/settings" class="menu__item menu__item--settings">
           <a class="menu__link">Настройки</a>
         </router-link>     
       </ul>
@@ -28,12 +31,18 @@
 .wrapper {
   background-color: $light;
   height: 100%;
-  background-image: 
+  background-image:
     url('../assets/logo1.svg'),
     url('../assets/pattern.svg');
-  background-repeat: no-repeat;
-  background-size: 50%, 106%;
-  background-position: 34% 15%, 50% -25px;
+  background-repeat: 
+    no-repeat,
+    no-repeat;
+  background-size: 
+    160px, 
+    cover;
+  background-position: 
+    50% 90px, 
+    50% -25px;
 }
 
 .menu {
@@ -41,7 +50,8 @@
 
   &__items {
     @include list-reboot();
-    margin-left: 88px;
+    width: 100px;
+    margin: 0 auto;
     margin-top: 144px;
   }
 
@@ -87,8 +97,8 @@ export default {
     ButtonComponent
   },
   methods: {
-    goToChats () {
-      this.$router.push('chats');
+    goBack () {
+      this.$router.go(-1)
     }
   }
 }

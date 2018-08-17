@@ -1,45 +1,50 @@
 <template>
 	<div class="wrapper">
     <HeaderPanel heading="Настройки">
-      <button-component 
+      <ButtonComponent 
         slot="left"
-        icon="menu"
-        iconSize="70"
+				icon="menu"
+				iconSize="70"
+				:onClick="goToMenu"
       />
     </HeaderPanel>
 		<h2 class="settings__heading">Основные</h2>
 		<ul class="settings">
 			<li class="settings__item">
 				<label class="settings__toggle">
-					{{ isNotifications ? settings[1] : settings[2] }} {{ settings[3] }}
+					{{ 
+						isNotifications 
+							? 'Выключить уведомления' 
+							: 'Включить уведомления'
+					}}
 					<input v-model="isNotifications" type="checkbox" name="online">
 				</label>
-			</li>
+				</li>
 			<!-- <li class="settings__item">
-			  <button type="button" class="settings__button">
-				  {{ settings[6] }}
-			  </button>
+					<button type="button" class="settings__button">
+					{{ settings[6] }}
+					</button>
 			</li> -->
 			<!-- <li class="settings__item">
-			  <label class="settings__toggle">
+				<label class="settings__toggle">
 				Местные уведомления
 				<input type="checkbox" name="online">
-			  </label>
+				</label>
 			</li> -->
 		</ul>
 		<ul class="settings settings--danger">
+			<!-- <li class="settings__item">
+				<button class="settings__set">Сбросить всё</button>
+			</li> -->
 			<li class="settings__item">
-				<button @click="reset" class="settings__set">{{ settings[4] }}</button>
-			</li>
-			<li class="settings__item">
-				<button @click="logOut" class="settings__set">{{ settings[5] }}</button>
+				<button class="settings__set">Выйти из аккаунта</button>
 			</li>
 		</ul>
 	</div>
 </template>
 
 <style lang="scss" scoped>
-	@import "../scss/mixins";
+	@import "../styles/main";
 	
 	.wrapper {
     padding-top: .1px;
@@ -53,19 +58,19 @@
 	.settings {
 		@include list-reboot();
 		background-color: #fff;
-		border-top: get-vw(1px) solid rgba($color: #000, $alpha: .05);
-		border-bottom: get-vw(1px) solid rgba($color: #000, $alpha: .05);
+		border-top: 1px solid rgba($color: #000, $alpha: .05);
+		border-bottom: 1px solid rgba($color: #000, $alpha: .05);
 		
 		&__heading {
 			opacity: 0.3;
-			font-size: get-vw(14px);
+			font-size: 14px;
 			font-family: 'Geometria', Arial, Helvetica, sans-serif;
-			margin: get-vw(20px) get-vw(15px) get-vw(10px);
+			margin: 20px 15px 10px;
 		}
 		
 		&__item {
 			display: block;
-			margin: 0 get-vw(15px);
+			margin: 0 15px;
 			
 			&:last-child .settings__toggle {
 				border-bottom: none;
@@ -73,29 +78,29 @@
 		}
 		
 		&__toggle {
-			padding: get-vw(4px) 0;
+			padding: 4px 0;
 			display: flex;
 			align-items: center;
-			border-bottom: get-vw(1px) solid rgba($color: #000, $alpha: .05);
+			border-bottom: 1px solid rgba($color: #000, $alpha: .05);
 		}
 		
 		&__set {
 			display: block;
 			width: 100%;
 			text-align: left;
-			padding: get-vw(13px) get-vw(15px) get-vw(14px);
+			padding: 13px 15px 14px;
 			border: none;
 			background-color: #fff;
-			font-size: get-vw(14px);
+			font-size: 14px;
 			font-family: 'Geometria Medium', Arial, Helvetica, sans-serif;
 		}
 		
 		&__button {
-			padding: get-vw(12px) 0;
+			padding: 12px 0;
 			border: none;
 			background: 0;
 			font-family: 'Geometria Medium', Arial, Helvetica, sans-serif;
-			font-size: get-vw(14px);
+			font-size: 14px;
 		}
 	}
 	
@@ -105,10 +110,10 @@
 		.settings {
 			&__item {
 				margin: 0;
-				margin-top: get-vw(25px);
+				margin-top: 25px;
 				background-color: #fff;
-				border-bottom: get-vw(1px) solid rgba($color: #000, $alpha: .05);
-				border-top: get-vw(1px) solid rgba($color: #000, $alpha: .05);
+				border-bottom: 1px solid rgba($color: #000, $alpha: .05);
+				border-top: 1px solid rgba($color: #000, $alpha: .05);
 			}
 			
 			&__set {
@@ -127,31 +132,31 @@
 		outline: none;
 		appearance: none;
 		background-color: darken($white, 2%);
-		border: get-vw(1px) solid $grey;
-		border-radius: get-vw(26px);
-		box-shadow: inset 0 0 0 get-vw(1px) $grey;
+		border: 1px solid $grey;
+		border-radius: 26px;
+		box-shadow: inset 0 0 0 1px $grey;
 		cursor: pointer;
-		height: get-vw(28px);
+		height: 28px;
 		position: relative;
 		transition: border .25s .15s,
 		box-shadow .25s .3s,
 		padding .25s;
-		width: get-vw(44px);
+		width: 44px;
 		vertical-align: top;
 		
 		&:after {
 			background-color: $white;
-			border: get-vw(1px) solid $grey;
-			border-radius: get-vw(24px);
-			box-shadow: inset 0 get-vw(-3px) get-vw(3px) hsla(0, 0%, 0%, .025),
-			0 get-vw(1px) get-vw(4px) hsla(0, 0%, 0%, .15),
-			0 get-vw(4px) get-vw(4px) hsla(0, 0%, 0%, .1);
+			border: 1px solid $grey;
+			border-radius: 24px;
+			box-shadow: inset 0 -3px 3px hsla(0, 0%, 0%, .025),
+			0 1px 4px hsla(0, 0%, 0%, .15),
+			0 4px 4px hsla(0, 0%, 0%, .1);
 			content: '';
 			display: block;
-			height: get-vw(24px);
+			height: 24px;
 			left: 0;
 			position: absolute;
-			right: get-vw(16px);
+			right: 16px;
 			top: 0;
 			transition: border .25s .15s,
 			left .25s .1s,
@@ -159,15 +164,15 @@
 		}
 		&:checked {
 			border-color: $green;
-			box-shadow: inset 0 0 0 get-vw(13px) $green;
-			padding-left: get-vw(18px);
+			box-shadow: inset 0 0 0 13px $green;
+			padding-left: 18px;
 			transition: border .25s,
 			box-shadow .25s,
 			padding .25s .15s;
 			
 			&:after {
 				border-color: $green;
-				left: get-vw(16px);
+				left: 16px;
 				right: 0;
 				transition: border .25s,
 				left .15s .25s,
@@ -178,16 +183,23 @@
 </style>
 
 <script>
-	import Header from '@/components/HeaderPanel';
+	import HeaderPanel from '@/components/HeaderPanel';
+	import ButtonComponent from '@/components/ButtonComponent';
 	
 	export default {
 		components: {
-			HeaderPanel
+			HeaderPanel,
+			ButtonComponent
     },
     data () {
       return {
-        isNotification: false,
+        isNotifications: false,
       }
-    }
+		},
+		methods: {
+			goToMenu () {
+				this.$router.push('menu')
+			}
+		}
 	}
 </script>

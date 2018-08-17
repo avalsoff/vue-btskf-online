@@ -7,32 +7,24 @@ export default new Router({
   routes: [
     {
       path: '/dialog',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/DialogView.vue')
+      component: () => import('./views/DialogView.vue')
     },
     {
       path: '/chats',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/ChatsView.vue')
-    },
-    {
-      path: '/login',
-      alias: '/',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/LoginView.vue')
+      component: () => import('./views/ChatsView.vue')
     },
     {
       path: '/menu',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/MenuView.vue')
+      component: () => import('./views/MenuView.vue')
+    },
+    {
+      path: '/settings',
+      component: () => import('./views/SettingsView.vue')
+    },
+    {
+      path: '/login',
+      alias: '/',      
+      component: () => import('./views/LoginView.vue')
     },
 
   ]
