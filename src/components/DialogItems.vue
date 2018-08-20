@@ -11,6 +11,7 @@
   <DialogPreview 
     v-for="thread in threads"
     :key="thread.id"
+    :id="thread.id"
     :heading="thread.name"
     :status="thread.status"
     :timestamp="thread.timestamp"
@@ -20,7 +21,7 @@
 
 <script>
 import DialogPreview from '@/components/DialogPreview.vue'
-import { mapActions, mapGetters } from 'vuex'
+import { mapGetters } from 'vuex'
 
 export default {
   components: {
@@ -38,10 +39,7 @@ export default {
       'currentThread',
       'unreadCount'
     ])
-  },
-  methods: {
-    ...mapActions(['switchThread'])
-  }  
+  }
 }
 </script>
 

@@ -21,6 +21,8 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 const statuses = {
   open: {
     color: '#579136',
@@ -52,10 +54,16 @@ export default {
     },
     text: {
       type: String
+    },
+    id: {
+      type: String,
+      required: true
     }
   },
   methods: {
+    ...mapActions(['switchThread']),
     goToDialog () {
+      this.switchThread(this.id)
       this.$router.push('dialog');
     },
     getStatusColor (status) {
