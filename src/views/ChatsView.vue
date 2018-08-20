@@ -22,6 +22,7 @@
     </HeaderPanel>
     <DialogList      
       @click.native="hideNewForm"
+      :threads="filteredThreads"
     />
     <footer v-if="!showForm" class="about__footer">
       <SendFlexRow>
@@ -55,21 +56,21 @@
         <h4 class="filters__heading">Фильтр по статусам</h4>
         <div class="filters__filter">
           <label>
-            <input type="checkbox">
+            <input type="checkbox" v-model="checkedFilters" value="open">
             <span></span>
             Открыто
           </label>
         </div>
         <div class="filters__filter">
           <label>
-            <input type="checkbox">
+            <input type="checkbox" v-model="checkedFilters" value="close">
             <span></span>
             Закрыто
           </label>
         </div>
         <div class="filters__filter">
           <label>
-            <input type="checkbox">
+            <input type="checkbox" v-model="checkedFilters" value="queue">
             <span></span>
             В очереди
           </label>
@@ -87,7 +88,7 @@ import ButtonComponent from '@/components/ButtonComponent.vue'
 import DialogList from '@/components/DialogList.vue'
 import ModalComponent from '@/components/ModalComponent.vue'
 
-import { mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   components: {
@@ -104,6 +105,22 @@ export default {
       currentMessage: '',
       currentName: '',
       showForm: true,
+      checkedFilters: []
+    }
+  },
+  computed: {
+    ...mapGetters([
+      'threads'
+    ]),
+
+    filteredThreads () {
+      if (this.checkedFilters.length === 0) return this.threads
+      let keys = Object.keys(this.threads)
+      let filteredObj = {}
+      for (let key of keys) 
+        if (this.checkedFilters.includes(this.threads[key].status)) 
+          filteredObj[key] = this.threads[key]
+      return filteredObj
     }
   },
   methods: {

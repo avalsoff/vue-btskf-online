@@ -28,14 +28,13 @@ export default {
     DialogItem
   },
   props: {
-    dialogItems: {
-      type: Array,
-      default: () => [],
+    threads: {
+      type: Object,
+      default: () => {},
     }
   },
   computed: {
     ...mapGetters([
-      'threads',
       'currentThread',
       'unreadCount'
     ])
