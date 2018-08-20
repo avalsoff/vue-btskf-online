@@ -21,7 +21,7 @@
       />
     </HeaderPanel>
     <DialogItems      
-      @click.native.self="hideNewForm"
+      @click.native="hideNewForm"
       :dialogItems="dialogItems"
     />
     <footer v-if="!showForm" class="about__footer">
@@ -31,6 +31,7 @@
           :auto-expand="true"
           v-model="currentName"
           :focused="true"
+          :onEnterPress="createNewDialog"
         />
       </SendUIs>
       <SendUIs :isLast="true">
@@ -38,6 +39,7 @@
           placeholder="Текст сообщения"
           :auto-expand="true"
           v-model="currentMessage"
+          :onEnterPress="createNewDialog"
         />
         <ButtonComponent 
           text="Отпр."

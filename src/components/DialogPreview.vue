@@ -5,8 +5,8 @@
       {{ heading }}
     </h2>
     <!-- Router link -->
-    <div v-if="date !== 'none'" class="dialog-preview__button">
-      {{ date }}
+    <div v-if="timestamp !== 'none'" class="dialog-preview__button">
+      {{ timestamp | date }}
     </div>
   </div>
   <div class="dialog-preview__status" :class="{'dialog-preview__company': text}">
@@ -46,9 +46,9 @@ export default {
       type: String,
       required: true
     },
-    date: {
-      type: String,
-      default: 'Вчера'
+    timestamp: {
+      type: Number,
+      default: Number(new Date())
     },
     text: {
       type: String

@@ -64,26 +64,28 @@ export default {
       const getPropertyInPx = (propName) => {
         return parseInt(computed.getPropertyValue(propName), 10)
       }
-
       const properties = [
         'border-top-width', 
         // 'padding-top',
         // 'padding-bottom',
         'border-bottom-width'
       ]
-
       const height = properties
         .reduce((sum, name) => {
           return sum += getPropertyInPx(name);
         }, 0) + field.scrollHeight
-
       return height;
     },
+
+    focus() {
+      if (this.focused) {
+        this.$nextTick(() => this.$refs.field.focus())
+      }
+    },
+
     init () {
       this.height = this.expand()
-      if (this.focused) {
-        this.$refs.field.focus()
-      }
+      this.focus()
     }
   },
   mounted () {
@@ -93,9 +95,7 @@ export default {
     this.init()
   },
   updated () {
-    if (this.focused) {
-      this.$refs.field.focus()
-    }
+    this.focus()
   }
 }
 </script>

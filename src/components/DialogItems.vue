@@ -1,18 +1,26 @@
 <template>
 <main class="dialog-items">
-  <DialogPreview 
+  <!-- <DialogPreview 
     v-for="dialog in dialogItems"
     :key="dialog.id"
     :heading="dialog.heading"
     :status="dialog.status"
     :text="dialog.text"
     :date="dialog.date"
+  /> -->
+  <DialogPreview 
+    v-for="thread in threads"
+    :key="thread.id"
+    :heading="thread.name"
+    :status="thread.status"
+    :timestamp="thread.timestamp"
   />
-</main>
+  </main>
 </template>
 
 <script>
 import DialogPreview from '@/components/DialogPreview.vue'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   components: {
@@ -23,7 +31,17 @@ export default {
       type: Array,
       default: () => [],
     }
-  }
+  },
+  computed: {
+    ...mapGetters([
+      'threads',
+      'currentThread',
+      'unreadCount'
+    ])
+  },
+  methods: {
+    ...mapActions(['switchThread'])
+  }  
 }
 </script>
 
