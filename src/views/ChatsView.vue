@@ -22,7 +22,6 @@
     </HeaderPanel>
     <DialogItems      
       @click.native="hideNewForm"
-      :dialogItems="dialogItems"
     />
     <footer v-if="!showForm" class="about__footer">
       <SendUIs>
@@ -31,7 +30,7 @@
           :auto-expand="true"
           v-model="currentName"
           :focused="true"
-          :onEnterPress="createNewDialog"
+          :onEnterPress="addThread"
         />
       </SendUIs>
       <SendUIs :isLast="true">
@@ -39,11 +38,11 @@
           placeholder="Текст сообщения"
           :auto-expand="true"
           v-model="currentMessage"
-          :onEnterPress="createNewDialog"
+          :onEnterPress="addThread"
         />
         <ButtonComponent 
           text="Отпр."
-          :onClick="createNewDialog"
+          :onClick="addThread"
         />
       </SendUIs>
     </footer>
@@ -88,6 +87,8 @@ import ButtonComponent from '@/components/ButtonComponent.vue'
 import DialogItems from '@/components/DialogItems.vue'
 import ModalComponent from '@/components/ModalComponent.vue'
 
+import { mapActions } from 'vuex'
+
 export default {
   components: {
     HeaderPanel,
@@ -103,30 +104,22 @@ export default {
       currentMessage: '',
       currentName: '',
       showForm: true,
-      dialogItems: [
-        {
-          id: 0,
-          heading: 'Обеспечение госконтракта',
-          status: 'open',
-          date: 'Сегодня'
-        },
-        {
-          id: 1,
-          heading: 'Создание счета',
-          status: 'open',
-          date: 'Вчера'
-        },
-        {
-          id: 2,
-          heading: 'Бонусы',
-          status: 'close',
-          date: 'Вчера'
-        },
-      ],
-      nextId: 3
     }
   },
   methods: {
+    ...mapActions({
+      addThread (dispatch) {
+        if (this.currentName.trim()) {
+          dispatch('addThread', {
+            name: this.currentName,
+            // MOCK
+            status: 'open'
+          })
+          this.currentName = ''
+          this.currentMessage = ''
+        }
+      }
+    }),
     showNewForm () {
       this.showForm = false
     },
@@ -136,16 +129,16 @@ export default {
     goToMenu () {
       this.$router.push('menu')
     },
-    createNewDialog () {
-      if (!this.currentName) return
-      this.dialogItems.unshift({
-        id: this.nextId++,
-        heading: this.currentName,
-        status: 'open'
-      })
-      this.currentMessage = ''
-      this.currentName = ''
-    },
+    // createNewDialog () {
+    //   if (!this.currentName) return
+    //   this.dialogItems.unshift({
+    //     id: this.nextId++,
+    //     heading: this.currentName,
+    //     status: 'open'
+    //   })
+    //   this.currentMessage = ''
+    //   this.currentName = ''
+    // },
   }
 }
 </script>

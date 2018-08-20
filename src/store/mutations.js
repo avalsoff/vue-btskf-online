@@ -25,6 +25,16 @@ export default {
 
   switchThread (state, id) {
     setCurrentThread(state, id)
+  },
+
+  receiveThread (state, thread) {
+    createThread(
+      state, 
+      't_' + Date.now(), 
+      thread.name, 
+      thread.status, 
+      Date.now()
+    )
   }
 }
 
@@ -58,5 +68,5 @@ function setCurrentThread (state, id) {
     debugger
   }
   // mark thread as read
-  state.threads[id].lastMessage.isRead = true
+  // state.threads[id].lastMessage.isRead = true
 }

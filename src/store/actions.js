@@ -16,3 +16,7 @@ export const sendMessage = ({ commit }, payload) => {
 export const switchThread = ({ commit }, payload) => {
   commit('switchThread', payload)
 }
+
+export const addThread = ({ commit }, payload) => {
+  commit('receiveThread', payload)
+}
