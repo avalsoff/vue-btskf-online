@@ -1,7 +1,7 @@
 <template>
 <main class="chat-dialog" ref="dialog">
   <span class="chat-dialog__date">18 июля 2018</span>
-  <ChatMessage
+  <MessageItem
     v-for="message in messages"
     :key="message.messageID"
     :text="message.messageText"
@@ -12,12 +12,12 @@
 </template>
 
 <script>
-import ChatMessage from '@/components/ChatMessage.vue'
+import MessageItem from '@/components/MessageItem.vue'
 import { mapGetters } from 'vuex'
 
 export default {
   components: {
-    ChatMessage
+    MessageItem
   },
   watch: {
     messages () {

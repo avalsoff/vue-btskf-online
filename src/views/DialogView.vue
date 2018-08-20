@@ -13,9 +13,9 @@
         iconSize="70"
       />
     </HeaderPanel>
-    <ChatDialog/>
+    <MessageList/>
     <footer class="about__footer">
-      <SendUIs :isLast="true">
+      <SendFlexGrid :isLast="true">
         <ButtonComponent 
           icon="add"
         />
@@ -31,7 +31,7 @@
           text="Отпр."
           :onClick="sendMessage"
         />
-      </SendUIs>
+      </SendFlexGrid>
     </footer>
   </div>
 </template>
@@ -39,10 +39,10 @@
 <script>
 import HeaderPanel from '@/components/HeaderPanel.vue'
 import InputText from '@/components/InputText.vue'
-import SendUIs from '@/components/SendUIs.vue'
-import ChatDialog from '@/components/ChatDialog.vue'
+import SendFlexGrid from '@/components/SendFlexGrid.vue'
+import MessageList from '@/components/MessageList.vue'
 import ButtonComponent from '@/components/ButtonComponent.vue'
-import DialogItems from '@/components/DialogItems.vue'
+import DialogList from '@/components/DialogList.vue'
 
 import { mapActions, mapGetters } from 'vuex'
 
@@ -50,10 +50,10 @@ export default {
   components: {
     HeaderPanel,
     InputText,
-    SendUIs,
-    ChatDialog,
+    SendFlexGrid,
+    MessageList,
     ButtonComponent,
-    DialogItems,
+    DialogList,
   },
   data () {
     return {

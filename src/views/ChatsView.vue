@@ -20,11 +20,11 @@
         :onClick="() => showFilters = true"
       />
     </HeaderPanel>
-    <DialogItems      
+    <DialogList      
       @click.native="hideNewForm"
     />
     <footer v-if="!showForm" class="about__footer">
-      <SendUIs>
+      <SendFlexGrid>
         <InputText 
           placeholder="Название диалога"
           :auto-expand="true"
@@ -32,8 +32,8 @@
           :focused="true"
           :onEnterPress="addThread"
         />
-      </SendUIs>
-      <SendUIs :isLast="true">
+      </SendFlexGrid>
+      <SendFlexGrid :isLast="true">
         <InputText 
           placeholder="Текст сообщения"
           :auto-expand="true"
@@ -44,7 +44,7 @@
           text="Отпр."
           :onClick="addThread"
         />
-      </SendUIs>
+      </SendFlexGrid>
     </footer>
     <ModalComponent 
       v-if="showFilters" 
@@ -82,9 +82,9 @@
 <script>
 import HeaderPanel from '@/components/HeaderPanel.vue'
 import InputText from '@/components/InputText.vue'
-import SendUIs from '@/components/SendUIs.vue'
+import SendFlexGrid from '@/components/SendFlexGrid.vue'
 import ButtonComponent from '@/components/ButtonComponent.vue'
-import DialogItems from '@/components/DialogItems.vue'
+import DialogList from '@/components/DialogList.vue'
 import ModalComponent from '@/components/ModalComponent.vue'
 
 import { mapActions } from 'vuex'
@@ -93,9 +93,9 @@ export default {
   components: {
     HeaderPanel,
     InputText,
-    SendUIs,
+    SendFlexGrid,
     ButtonComponent,
-    DialogItems,
+    DialogList,
     ModalComponent
   },
   data () {

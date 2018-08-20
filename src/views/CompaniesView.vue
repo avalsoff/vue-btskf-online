@@ -8,7 +8,7 @@
         :onClick="goToMenu"
       />
     </HeaderPanel>
-    <DialogItems 
+    <DialogList 
       :dialogItems="dialogItems"
     />
   </div>
@@ -17,18 +17,18 @@
 <script>
 import HeaderPanel from '@/components/HeaderPanel.vue'
 import InputText from '@/components/InputText.vue'
-import SendUIs from '@/components/SendUIs.vue'
+import SendFlexGrid from '@/components/SendFlexGrid.vue'
 import ButtonComponent from '@/components/ButtonComponent.vue'
-import DialogItems from '@/components/DialogItems.vue'
+import DialogList from '@/components/DialogList.vue'
 import ModalComponent from '@/components/ModalComponent.vue'
 
 export default {
   components: {
     HeaderPanel,
     InputText,
-    SendUIs,
+    SendFlexGrid,
     ButtonComponent,
-    DialogItems,
+    DialogList,
     ModalComponent
   },
   data () {

@@ -1,6 +1,6 @@
 <template>
 <main class="dialog-items">
-  <!-- <DialogPreview 
+  <!-- <DialogItem 
     v-for="dialog in dialogItems"
     :key="dialog.id"
     :heading="dialog.heading"
@@ -8,7 +8,7 @@
     :text="dialog.text"
     :date="dialog.date"
   /> -->
-  <DialogPreview 
+  <DialogItem 
     v-for="thread in threads"
     :key="thread.id"
     :id="thread.id"
@@ -20,12 +20,12 @@
 </template>
 
 <script>
-import DialogPreview from '@/components/DialogPreview.vue'
+import DialogItem from '@/components/DialogItem.vue'
 import { mapGetters } from 'vuex'
 
 export default {
   components: {
-    DialogPreview
+    DialogItem
   },
   props: {
     dialogItems: {
