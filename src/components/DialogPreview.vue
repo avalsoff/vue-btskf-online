@@ -5,16 +5,17 @@
       {{ heading }}
     </h2>
     <!-- Router link -->
-    <div class="dialog-preview__button">
-      Вчера
+    <div v-if="date !== 'none'" class="dialog-preview__button">
+      {{ date }}
     </div>
   </div>
-  <div class="dialog-preview__status">
+  <div class="dialog-preview__status" :class="{'dialog-preview__company': text}">
     <span 
+      v-if="!text"
       class="dialog-preview__status-marker"
       :style="{ backgroundColor: getStatusColor(status) }"
     ></span>
-    {{ getStatusText(status) }}
+    {{ !text ? getStatusText(status) : text }}
   </div>
 </a>
 </template>
@@ -28,7 +29,11 @@ const statuses = {
   close: {
     color: 'red',
     text: 'Закрыто'
-  }
+  },
+  queue: {
+    color: 'darkorange',
+    text: 'В очереди'
+  },
 }
 
 export default {
@@ -44,6 +49,9 @@ export default {
     date: {
       type: String,
       default: 'Вчера'
+    },
+    text: {
+      type: String
     }
   },
   methods: {
@@ -105,7 +113,7 @@ export default {
   &__button {
     position: relative;
     display: block;
-    width: 55px;
+    margin-right: 12px;
     font-size: 12px;
     color: #C4C8CD;
     display: flex;
@@ -115,13 +123,18 @@ export default {
       position: absolute;
       width: 12px;
       height: 12px;
-      right: 0;
+      right: -15px;
       top: 1px;
 
       background-image: url('../assets/angle-right.svg');
       background-repeat: no-repeat;
       background-size: contain;
     }
+  }
+
+  &__company {
+    margin-left: 0;
+    text-indent: -3px;
   }
 }
 </style>

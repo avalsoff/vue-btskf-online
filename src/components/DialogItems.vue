@@ -5,6 +5,8 @@
     :key="dialog.id"
     :heading="dialog.heading"
     :status="dialog.status"
+    :text="dialog.text"
+    :date="dialog.date"
   />
 </main>
 </template>

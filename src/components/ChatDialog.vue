@@ -18,6 +18,12 @@ export default {
   components: {
     ChatMessage
   },
+  watch: {
+    messages () {
+      console.log('messages');
+      this.$nextTick(()=>this.scrollToBottom());
+    }
+  },
   data () {
     return {
       longMockText: `Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Имеет всеми собрал, заголовок за инициал ее несколько продолжил сбить лучше lorem языком алфавит рыбными семантика которое, живет ведущими сих.`
@@ -28,6 +34,15 @@ export default {
       type: Array,
       default: () => []
     }
+  },
+  methods: {
+    scrollToBottom () {
+      const dialog = this.$refs.dialog
+      dialog.scrollTop = dialog.scrollHeight
+    }
+  },
+  activated () {
+    this.scrollToBottom()
   }
 }
 </script>

@@ -22,6 +22,10 @@ export default new Router({
       component: () => import('./views/SettingsView.vue')
     },
     {
+      path: '/companies',
+      component: () => import('./views/CompaniesView.vue')
+    },
+    {
       path: '/login',
       alias: '/',      
       component: () => import('./views/LoginView.vue')
