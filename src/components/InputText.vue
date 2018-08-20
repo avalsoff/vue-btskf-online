@@ -2,10 +2,10 @@
   <textarea
     class="input-text"
     :placeholder="placeholder"
-    @input="expand"
+    @input="emitValue"
     ref="field"
     :value="value"
-    @keyUp.enter="$emit('send')"
+    @keypress.enter.exact.prevent="onEnterPress"
   ></textarea>
 </template>
 
@@ -23,6 +23,15 @@ export default {
     value: {
       type: String,
       default: ''
+    },
+    onEnterPress: {
+      type: Function, 
+      default: () => console.log('Enter pressed')
+    }
+  },
+  watch: {
+    value () {
+      this.$nextTick(()=>this.expand());
     }
   },
   data () {
@@ -32,11 +41,12 @@ export default {
     }
   },
   methods: {
-    expand (evt) {
+    emitValue (evt) {
       if (evt) {
         this.$emit('input', evt.srcElement.value);
       }
-
+    },
+    expand () {
       if (!this.autoExpand) return
 
       const field = this.$refs.field
@@ -87,6 +97,7 @@ export default {
   resize: none;
   outline: none;
   border: 1px solid #EEEEEF;
+  font-size: 16px;
 
   &::placeholder {
     color: #BFC1C7

@@ -103,11 +103,11 @@
 			font-size: 14px;
 		}
 	}
-	
+
 	.settings--danger {
 		background-color: #FBFBFC;
 		border: none;
-		.settings {
+		.settings {			
 			&__item {
 				margin: 0;
 				margin-top: 25px;

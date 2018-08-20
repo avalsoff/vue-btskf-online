@@ -26,6 +26,7 @@
           :auto-expand="true"
           v-model="currentMessage"
           @send="sendMessage"
+          :onEnterPress="sendMessage"
         />
         <ButtonComponent 
           text="Отпр."
@@ -81,6 +82,7 @@ export default {
       this.$router.push('chats');
     },
     sendMessage () {
+      if (!this.currentMessage) return
       this.messages.push({
         id: this.nextId++,
         text: this.currentMessage,

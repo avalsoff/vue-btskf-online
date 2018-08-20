@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <HeaderPanel heading="Тикеты">
+    <HeaderPanel heading="Задачи">
       <ButtonComponent 
         slot="right"
         icon="edit"
@@ -136,6 +136,7 @@ export default {
       this.$router.push('menu')
     },
     createNewDialog () {
+      if (!this.currentName) return
       this.dialogItems.unshift({
         id: this.nextId++,
         heading: this.currentName,
@@ -170,8 +171,8 @@ export default {
     }
     span {
       position: absolute;
-      left: -8px;
-      top: 1px;
+      left: 3px;
+      top: 3px;
       border: 1px solid #B2B2B2;
       display: block;
       width: 14px;
@@ -181,10 +182,10 @@ export default {
     label {
       position: relative;
       display: block;
-      margin-left: 8px;
+      margin-left: -2px;
     }
     input {
-      appearance: none;
+      visibility: hidden;
     }
     input:checked + span::before {
       position: absolute;
