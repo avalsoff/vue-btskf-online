@@ -19,21 +19,74 @@
           </a>
 				</li>
 			</ul>
-			<form v-if="!register" class="login__form">
+			<form 
+				v-if="!register" 
+				class="login__form"
+			>
 				<h1 class="login__heading">Вход</h1>
-				<input v-model="currentLogin" class="login__input" type="text" name="login" placeholder="Имя пользователя">
-				<input v-model="currentPassword" class="login__input" type="password" name="password" placeholder="Пароль">
-				<button @click="goToChats" class="login__submit" type="button">Вход</button>
+				<input 
+					v-model="currentLogin" 
+					class="login__input" 
+					type="text" 
+					name="login" 
+					placeholder="Имя пользователя"
+				>
+				<input 
+					v-model="currentPassword" 
+					class="login__input" 
+					type="password" 
+					name="password" 
+					placeholder="Пароль"
+				>
+				<button 
+					@click="goToChats" 
+					class="login__submit" 
+					type="button"
+				>
+					Вход
+				</button>
 			</form>
-			<form v-if="register" class="login__form">
+			<form 
+				v-if="register" 
+				class="login__form"
+			>
 				<h1 class="login__heading">Регистрация</h1>
-				<input v-model="currentLogin" class="login__input" type="text" name="login" placeholder="Имя пользователя">
-				<input v-model="currentPassword" class="login__input" type="password" name="password" placeholder="Пароль">
-				<input v-model="currentPassConfirmation" class="login__input" type="password" name="password" placeholder="Подтверждение пароля">
-				<button @click="goToChats" class="login__submit" type="button">Регистрация</button>
+				<input 
+					v-model="currentLogin" 
+					class="login__input" 
+					type="text" 
+					name="login" 
+					placeholder="Имя пользователя"
+				>
+				<input 
+					v-model="currentPassword" 
+					class="login__input" 
+					type="password" 
+					name="password" 
+					placeholder="Пароль"
+				>
+				<input 
+					v-model="currentPassConfirmation" 
+					class="login__input" 
+					type="password" 
+					name="password" 
+					placeholder="Подтверждение пароля"
+				>
+				<button 
+					@click="goToChats" 
+					class="login__submit" 
+					type="button"
+				>
+					Регистрация
+				</button>
 			</form>
 			<span class="login__or">Или</span>
-			<button @click="register = !register" class="login__toggle">{{ register ? 'Вход' : 'Регистрация' }}</button>
+			<button 
+				@click="register = !register" 
+				class="login__toggle"
+			>
+				{{ register ? 'Вход' : 'Регистрация' }}
+			</button>
 		</div>
 	</div>
 </template>

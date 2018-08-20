@@ -17,7 +17,7 @@
 <script>
 import HeaderPanel from '@/components/HeaderPanel.vue'
 import InputText from '@/components/InputText.vue'
-import SendFlexGrid from '@/components/SendFlexGrid.vue'
+import SendFlexRow from '@/components/SendFlexRow.vue'
 import ButtonComponent from '@/components/ButtonComponent.vue'
 import DialogList from '@/components/DialogList.vue'
 import ModalComponent from '@/components/ModalComponent.vue'
@@ -26,7 +26,7 @@ export default {
   components: {
     HeaderPanel,
     InputText,
-    SendFlexGrid,
+    SendFlexRow,
     ButtonComponent,
     DialogList,
     ModalComponent

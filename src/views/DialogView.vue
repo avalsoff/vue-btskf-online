@@ -15,7 +15,7 @@
     </HeaderPanel>
     <MessageList/>
     <footer class="about__footer">
-      <SendFlexGrid :isLast="true">
+      <SendFlexRow :isLast="true">
         <ButtonComponent 
           icon="add"
         />
@@ -31,7 +31,7 @@
           text="Отпр."
           :onClick="sendMessage"
         />
-      </SendFlexGrid>
+      </SendFlexRow>
     </footer>
   </div>
 </template>
@@ -39,7 +39,7 @@
 <script>
 import HeaderPanel from '@/components/HeaderPanel.vue'
 import InputText from '@/components/InputText.vue'
-import SendFlexGrid from '@/components/SendFlexGrid.vue'
+import SendFlexRow from '@/components/SendFlexRow.vue'
 import MessageList from '@/components/MessageList.vue'
 import ButtonComponent from '@/components/ButtonComponent.vue'
 import DialogList from '@/components/DialogList.vue'
@@ -50,7 +50,7 @@ export default {
   components: {
     HeaderPanel,
     InputText,
-    SendFlexGrid,
+    SendFlexRow,
     MessageList,
     ButtonComponent,
     DialogList,

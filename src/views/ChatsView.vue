@@ -24,7 +24,7 @@
       @click.native="hideNewForm"
     />
     <footer v-if="!showForm" class="about__footer">
-      <SendFlexGrid>
+      <SendFlexRow>
         <InputText 
           placeholder="Название диалога"
           :auto-expand="true"
@@ -32,8 +32,8 @@
           :focused="true"
           :onEnterPress="addThread"
         />
-      </SendFlexGrid>
-      <SendFlexGrid :isLast="true">
+      </SendFlexRow>
+      <SendFlexRow :isLast="true">
         <InputText 
           placeholder="Текст сообщения"
           :auto-expand="true"
@@ -44,7 +44,7 @@
           text="Отпр."
           :onClick="addThread"
         />
-      </SendFlexGrid>
+      </SendFlexRow>
     </footer>
     <ModalComponent 
       v-if="showFilters" 
@@ -82,7 +82,7 @@
 <script>
 import HeaderPanel from '@/components/HeaderPanel.vue'
 import InputText from '@/components/InputText.vue'
-import SendFlexGrid from '@/components/SendFlexGrid.vue'
+import SendFlexRow from '@/components/SendFlexRow.vue'
 import ButtonComponent from '@/components/ButtonComponent.vue'
 import DialogList from '@/components/DialogList.vue'
 import ModalComponent from '@/components/ModalComponent.vue'
@@ -93,7 +93,7 @@ export default {
   components: {
     HeaderPanel,
     InputText,
-    SendFlexGrid,
+    SendFlexRow,
     ButtonComponent,
     DialogList,
     ModalComponent
