@@ -3,16 +3,17 @@
   <span class="chat-dialog__date">18 июля 2018</span>
   <ChatMessage
     v-for="message in messages"
-    :key="message.id"
-    :text="message.text"
+    :key="message.messageID"
+    :text="message.messageText"
     :time-stamp="new Date().toLocaleTimeString()"
-    :is-right-position="message.isRightPosition"
+    :is-right-position="message.messageIsMy"
   />
 </main>
 </template>
 
 <script>
 import ChatMessage from '@/components/ChatMessage.vue'
+import { mapGetters } from 'vuex'
 
 export default {
   components: {
@@ -21,19 +22,20 @@ export default {
   watch: {
     messages () {
       console.log('messages');
-      this.$nextTick(()=>this.scrollToBottom());
+      this.$nextTick(() => this.scrollToBottom());
     }
   },
-  data () {
-    return {
-      longMockText: `Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Имеет всеми собрал, заголовок за инициал ее несколько продолжил сбить лучше lorem языком алфавит рыбными семантика которое, живет ведущими сих.`
-    }
-  },
-  props: {
-    messages: {
-      type: Array,
-      default: () => []
-    }
+  // props: {
+  //   messages: {
+  //     type: Array,
+  //     default: () => []
+  //   }
+  // },
+  computed: {
+    ...mapGetters({
+      thread: 'currentThread',
+      messages: 'sortedMessages'
+    })
   },
   methods: {
     scrollToBottom () {

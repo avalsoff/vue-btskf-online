@@ -13,9 +13,7 @@
         iconSize="70"
       />
     </HeaderPanel>
-    <ChatDialog 
-      :messages="messages"
-    />
+    <ChatDialog/>
     <footer class="about__footer">
       <SendUIs :isLast="true">
         <ButtonComponent 
@@ -46,6 +44,8 @@ import ChatDialog from '@/components/ChatDialog.vue'
 import ButtonComponent from '@/components/ButtonComponent.vue'
 import DialogItems from '@/components/DialogItems.vue'
 
+import { mapActions, mapGetters } from 'vuex'
+
 export default {
   components: {
     HeaderPanel,
@@ -58,39 +58,29 @@ export default {
   data () {
     return {
       currentMessage: '',
-      nextId: 3,
-      messages: [
-        {
-          id: 0,
-          text: 'Здравствуйте, подскажите пожалуйста, возможно ли.. Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. ',
-          isRightPosition: true
-        },
-        {
-          id: 1,
-          text: 'Да, конечно, для этого вам нужно обратиться в Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. ',
-          isRightPosition: false
-        },
-        // {
-        //   id: 2,
-        //   text: 'Вам потребуется паспорт, документы на квартиру, ИННю Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. ',
-        //   isRightPosition: false
-        // },
-      ],
+      nextId: 3
     }
+  },
+  computed: {
+    ...mapGetters({
+      thread: 'currentThread'
+    })
   },
   methods: {
     goToChats () {
       this.$router.push('chats');
     },
-    sendMessage () {
-      if (!this.currentMessage) return
-      this.messages.push({
-        id: this.nextId++,
-        text: this.currentMessage,
-        isRightPosition: true
-      })
-      this.currentMessage = ''
-    }
+    ...mapActions({
+      sendMessage (dispatch) {
+        if (this.currentMessage.trim()) {
+          dispatch('sendMessage', {
+            text: this.currentMessage,
+            thread: this.thread
+          })
+          this.currentMessage = ''
+        }
+      }
+    })
   }
 }
 </script>
