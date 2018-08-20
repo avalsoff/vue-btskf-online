@@ -43,6 +43,9 @@ export default {
   },
   activated () {
     this.scrollToBottom()
+  },
+  mounted () {
+    this.scrollToBottom()
   }
 }
 </script>

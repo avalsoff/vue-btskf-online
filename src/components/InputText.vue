@@ -1,11 +1,11 @@
 <template>
   <textarea
     class="input-text"
-    :placeholder="placeholder"
     @input="emitValue"
-    ref="field"
-    :value="value"
     @keypress.enter.exact.prevent="onEnterPress"
+    :placeholder="placeholder"
+    :value="value"
+    ref="field"
   ></textarea>
 </template>
 
@@ -27,6 +27,10 @@ export default {
     onEnterPress: {
       type: Function, 
       default: () => console.log('Enter pressed')
+    },
+    focused: {
+      type: Boolean,
+      default: false
     }
   },
   watch: {
@@ -46,22 +50,17 @@ export default {
         this.$emit('input', evt.srcElement.value);
       }
     },
+
     expand () {
       if (!this.autoExpand) return
-
       const field = this.$refs.field
-
       field.style.height = this.height
-
       const computed = window.getComputedStyle(field)
-
       field.style.height = this.getCurrentHeight(field, computed) + 'px'
-
       return field.style.height;
     },
 
     getCurrentHeight (field, computed) {
-
       const getPropertyInPx = (propName) => {
         return parseInt(computed.getPropertyValue(propName), 10)
       }
@@ -79,10 +78,24 @@ export default {
         }, 0) + field.scrollHeight
 
       return height;
+    },
+    init () {
+      this.height = this.expand()
+      if (this.focused) {
+        this.$refs.field.focus()
+      }
     }
   },
   mounted () {
-    this.height = this.expand();
+    this.init()
+  },
+  activated () {
+    this.init()
+  },
+  updated () {
+    if (this.focused) {
+      this.$refs.field.focus()
+    }
   }
 }
 </script>
@@ -102,6 +115,5 @@ export default {
   &::placeholder {
     color: #BFC1C7
   }
-
 }
 </style>

@@ -20,7 +20,8 @@
         :onClick="() => showFilters = true"
       />
     </HeaderPanel>
-    <DialogItems 
+    <DialogItems      
+      @click.native.self="hideNewForm"
       :dialogItems="dialogItems"
     />
     <footer v-if="!showForm" class="about__footer">
@@ -29,12 +30,10 @@
           placeholder="Название диалога"
           :auto-expand="true"
           v-model="currentName"
+          :focused="true"
         />
       </SendUIs>
       <SendUIs :isLast="true">
-        <!-- <ButtonComponent 
-          icon="add"
-        /> -->
         <InputText 
           placeholder="Текст сообщения"
           :auto-expand="true"

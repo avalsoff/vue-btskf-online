@@ -27,6 +27,7 @@
           v-model="currentMessage"
           @send="sendMessage"
           :onEnterPress="sendMessage"
+          :focused="true"
         />
         <ButtonComponent 
           text="Отпр."
