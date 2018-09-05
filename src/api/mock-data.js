@@ -4,7 +4,7 @@ module.exports = [
     threadName: 'Обеспечение госконтракта',
     threadStatus: 'open',
     messageID: 'm_1',
-    messageText: '1',
+    messageText: 'Здравствуйте, возникли сложности с обеспечением госконтракта',
     messageIsMy: true,
     timestamp: Date.now() - 99999
   },
@@ -13,7 +13,7 @@ module.exports = [
     threadName: 'Обеспечение госконтракта',
     threadStatus: 'open',
     messageID: 'm_2',
-    messageText: '2',
+    messageText: 'Здравствуйте. Сейчас посмотрим',
     messageIsMy: false,
     timestamp: Date.now() - 89999
   },
@@ -22,7 +22,7 @@ module.exports = [
     threadName: 'Создание счета',
     threadStatus: 'queue',
     messageID: 'm_3',
-    messageText: '3',
+    messageText: 'Здравствуйте, возникли сложности с созданием счета',
     messageIsMy: true,
     timestamp: Date.now() - 79999
   },
@@ -31,7 +31,7 @@ module.exports = [
     threadName: 'Создание счета',
     threadStatus: 'queue',
     messageID: 'm_4',
-    messageText: '4',
+    messageText: 'Здравствуйте, расскажите пожалуйста какие сложности возникли',
     messageIsMy: false,
     timestamp: Date.now() - 69999
   },
@@ -40,7 +40,7 @@ module.exports = [
     threadName: 'Бонусы',
     threadStatus: 'close',
     messageID: 'm_5',
-    messageText: '5',
+    messageText: 'Здравствуйте, какие бонусы предоставляются?',
     messageIsMy: true,
     timestamp: Date.now() - 59999
   },
@@ -49,7 +49,7 @@ module.exports = [
     threadName: 'Бонусы',
     threadStatus: 'close',
     messageID: 'm_6',
-    messageText: '6',
+    messageText: 'Здравствуйте, вот ссылка на список бонусов',
     messageIsMy: false,
     timestamp: Date.now() - 49999
   },
@@ -58,7 +58,7 @@ module.exports = [
     threadName: 'Дополнительные услуги',
     threadStatus: 'close',
     messageID: 'm_7',
-    messageText: '7',
+    messageText: 'Здравствуйте, подскажите пожалуйста, оплачиваются ли дополнительные услуги отдельно?',
     messageIsMy: true,
     timestamp: Date.now() - 39999
   },
@@ -67,7 +67,7 @@ module.exports = [
     threadName: 'Дополнительные услуги',
     threadStatus: 'close',
     messageID: 'm_8',
-    messageText: '8',
+    messageText: 'Здравствуйте, дополнительные услуги оплачиваются по отдельному тарифу',
     messageIsMy: false,
     timestamp: Date.now() - 29999
   },
@@ -76,7 +76,7 @@ module.exports = [
     threadName: 'Отправка документов',
     threadStatus: 'open',
     messageID: 'm_9',
-    messageText: '9',
+    messageText: 'Подскажите пожалуйста, отправились ли документы?',
     messageIsMy: true,
     timestamp: Date.now() - 19999
   },
@@ -85,7 +85,7 @@ module.exports = [
     threadName: 'Отправка документов',
     threadStatus: 'open',
     messageID: 'm_10',
-    messageText: '10',
+    messageText: 'Здравствуйте, документы будут отправлены 10.11.18',
     messageIsMy: false,
     timestamp: Date.now() - 9999
   },

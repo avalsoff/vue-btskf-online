@@ -13,9 +13,9 @@
         <router-link tag="li" to="/chats" class="menu__item menu__item--todos">
           <a class="menu__link">Задачи</a>
         </router-link>
-        <router-link tag="li" to="/companies" class="menu__item menu__item--companies">
+        <!-- <router-link tag="li" to="/companies" class="menu__item menu__item--companies">
           <a class="menu__link">Компании</a>
-        </router-link>     
+        </router-link>      -->
         <router-link tag="li" to="/settings" class="menu__item menu__item--settings">
           <a class="menu__link">Настройки</a>
         </router-link>     
